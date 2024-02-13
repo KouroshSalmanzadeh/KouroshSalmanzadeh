@@ -1,0 +1,319 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'yekan';
+    src: url(../fonts/yekan/Yekan.eot) format(eot);
+    src: url(../fonts/yekan/Yekan.ttf) format(ttf);
+    src: url(../fonts/yekan/Yekan.woff) format(woff);
+    src: url(../fonts/yekan/Yekan.woff2) format(woff2);
+}
+
+@font-face {
+    font-family: 'vazir';
+    src: url(../fonts/vazir-font-v16.1.0/Vazir-Light.eot) format(eot);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir-Bold.eot) format(eot);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir-Light.ttf) format(ttf);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir-Bold.ttf) format(ttf);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir-Light.woff) format(woff);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir-Bold.woff) format(woff);
+}
+
+html {
+    scroll-behavior: smooth;
+    direction: rtl;
+    font-size: 16px;
+}
+
+:root {
+    --green-color: #1ffa93;
+    --grey-color: #222222;
+    --white-color: #ffffff;
+}
+
+body {
+    font-family: 'yekan';
+}
+
+.container {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white-color);
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    float: left;
+    width: 60%;
+    height: 100vh;
+    background: linear-gradient(359deg, #1ffa93, black);
+    overflow: hidden;
+}
+
+aside {
+    float: right;
+    position: fixed;
+    width: 40%;
+    height: 100vh;
+    overflow: hidden;
+    box-shadow: 35px 0px 40px 30px black;
+}
+
+/* ---- background pattern ---- */
+canvas {
+    display: block;
+    vertical-align: bottom;
+    width: auto !important;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+    width: 100%;
+    height: 100%;
+    background-color: #222222;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+/* ---- stats.js ---- */
+.count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.js-count-particles {
+    font-size: 1.1em;
+}
+
+#stats,
+.count-particles {
+    -webkit-user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+.count-particles {
+    border-radius: 0 0 3px 3px;
+}
+
+/* ---content header--- */
+header .title {
+    margin-top: 2rem;
+}
+
+header .title h1,
+header .title h2 {
+    background: linear-gradient(130deg, var(--green-color) 20%, var(--grey-color), var(--green-color) 80%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: all .6s ease;
+    background-size: 300%;
+    position: relative;
+    z-index: 1;
+}
+
+header .title h1 {
+    background-position: left center;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+header .title h2 {
+    background-position: right center;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+header .title::before,
+header .title::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    transition: all .6s ease;
+}
+
+header .title::before {
+    width: 44rem;
+    height: 5rem;
+    background: linear-gradient(90deg, #ffffff2e, transparent);
+    left: auto;
+    right: 48rem;
+    top: 3.5rem;
+    border-radius: 50px 0 0 50px;
+}
+
+header .title::after {
+    width: 59rem;
+    height: 2.5rem;
+    background: linear-gradient(270deg, #ffffff2e, transparent);
+    left: 0;
+    right: auto;
+    top: 10.4rem;
+    border-radius: 0 50px 50px 0;
+}
+
+header .title:hover h1 {
+    background-size: 320%;
+    background-position: right center;
+    transition: all .7s ease;
+}
+
+header .title:hover h2 {
+    background-size: 320%;
+    background-position: left center;
+    transition: all .7s ease;
+}
+
+header .title:hover::before {
+    width: 0;
+    transition: all .3s ease;
+}
+
+header .title:hover::after {
+    width: 0;
+    transition: all .3s ease;
+}
+
+
+/* -----navbar----- */
+nav {
+    position: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    position: fixed;
+    right: -9.5rem;
+    background-color: #00000063;
+    border-radius: 20px 0 0 20px;
+    width: 11rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+nav ul:hover {
+    right: -1rem;
+}
+
+nav ul li {
+    width: 70%;
+    margin: 1rem 0;
+}
+
+nav ul li.active {
+    view-transition-name: activeNav;
+    /* background-color: var(--grey-color); */
+    position: relative;
+}
+
+::view-transition-group(activeNav) {
+    animation-duration: 1.5s;
+}
+
+nav ul li.active::before,
+nav ul li.active::after {
+    --border-radius: 2rem;
+
+    content: '';
+    position: absolute;
+    width: var(--border-radius);
+    height: var(--border-radius);
+    left: 0;
+}
+
+nav ul li.active::before {
+    top: -2.13rem;
+    box-shadow: -5px 5px 0px 5px var(--grey-color);
+    border-radius: 0 0 0 100vw;
+}
+
+nav ul li.active::after {
+    bottom: -2.3rem;
+    box-shadow: -5px -5px 0px 5px var(--grey-color);
+    border-radius: 100vw 0 0 0;
+}
+
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: -0.13rem;
+    left: -0.5rem;
+    width: 0;
+    height: 2.5rem;
+    background-color: var(--grey-color);
+    z-index: -1;
+    border-radius: 0 100vw 100vw 0;
+    transition: width cubic-bezier(0.08, 0.86, 0.6, 1.47) .5s;
+}
+
+nav ul li.active a::before {
+    width: 9.5rem;
+}
+
+.title-menu {
+    position: fixed;
+    top: -4.5rem;
+    text-align: center;
+    line-height: 10rem;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    transition: all cubic-bezier(0.08, 0.86, 0.6, 1.47) .5s;
+}
+
+.title-menu h1 {
+    color: var(--green-color);
+    width: 12rem;
+    height: 9rem;
+    font-size: 2rem;
+    background: #00000063;
+    padding: 1rem 0.5rem 1rem;
+    border-radius: 50%;
+}
+
+.title-menu.hide {
+    top: -9rem;
+}
