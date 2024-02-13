@@ -74,7 +74,6 @@ aside {
 /* ---- background pattern ---- */
 canvas {
     display: block;
-    vertical-align: bottom;
     width: auto !important;
 }
 
@@ -113,6 +112,10 @@ canvas {
 #stats,
 .count-particles {
     -webkit-user-select: none;
+    user-select: none;
+    /* Define the standard property for compatibility */
+    margin-top: 5px;
+    margin-left: 5px;
     margin-top: 5px;
     margin-left: 5px;
 }
