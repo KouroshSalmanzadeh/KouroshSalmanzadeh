@@ -109,24 +109,75 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
 });
-let count_particles, stats, update;
-stats = new Stats;
-stats.setMode(0);
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.left = '0px';
-stats.domElement.style.top = '0px';
-document.body.appendChild(stats.domElement);
-count_particles = document.querySelector('.js-count-particles');
-update = function () {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-    }
-    requestAnimationFrame(update);
-};
-requestAnimationFrame(update);;
+let count_particles, update;
 
+// این قسمت به عنوان یک نمایشگر آمار عملکرد مورد استفاده قرار میگیرد
+// stats = new Stats;
+// stats.setMode(0);
+// stats.domElement.style.position = 'absolute';
+// stats.domElement.style.left = '0px';
+// stats.domElement.style.top = '0px';
+// document.body.appendChild(stats.domElement);
+// count_particles = document.querySelector('.js-count-particles');
+// update = function () {
+//     stats.begin();
+//     stats.end();
+//     if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+//         count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+//     }
+//     requestAnimationFrame(update);
+// };
+// requestAnimationFrame(update);
+
+
+/////// loader \\\\\\\
+const closeIconLoader = document.querySelector('.loader svg');
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.querySelector('body');
+    setTimeout(() => {
+        body.classList.add('active-loader');
+        closeIconLoader.addEventListener('click', () => {
+            body.classList.remove('active-loader');
+            reveal();
+        })
+    }, 1000);
+    setTimeout(() => {
+        body.classList.remove('active-loader');
+    }, 10000);
+})
+
+/////// reveal and active elements \\\\\\\
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal-top, .reveal-right, .reveal-left");
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 70;
+
+        if (elementTop < windowHeight - elementVisible) {
+            if (reveals[i].className.includes('reveal-top')) {
+                reveals[i].classList.add("active-top");
+            } else if (reveals[i].className.includes('reveal-righ')) {
+                reveals[i].classList.add('active-right')
+            } else if (reveals[i].className.includes('reveal-left')) {
+                reveals[i].classList.add('active-left');
+            }
+        } else {
+            reveals[i].classList.remove("active");
+        }
+    }
+}
+window.addEventListener("scroll", () => {
+    setTimeout(() => {
+        reveal();
+    }, 10000);
+});
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        reveal();
+    }, 10000);
+});
 
 /////// navbar and title on top of the page ///////
 function selectMenu(ev) {
