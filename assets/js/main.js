@@ -138,12 +138,14 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.add('active-loader');
         closeIconLoader.addEventListener('click', () => {
             body.classList.remove('active-loader');
-            reveal();
+            setTimeout(() => {
+                reveal();
+            }, 1000);
         })
     }, 1000);
     setTimeout(() => {
         body.classList.remove('active-loader');
-    }, 10000);
+    }, 20000);
 })
 
 /////// reveal and active elements \\\\\\\
@@ -203,3 +205,21 @@ function selectMenu(ev) {
     }, 700);
     // clearTimeout(hide);
 }
+
+// Hide and show title of navbar when Scroll
+let prevScrollPos = window.pageYOffset;
+let titleMenu = document.querySelector(".title-menu");
+let initialShowThreshold = 150;
+window.onscroll = function () {
+    let currentScrollPos = window.pageYOffset;
+
+    if (currentScrollPos <= initialShowThreshold) {
+        titleMenu.classList.remove("hide-title-menu");
+    } else if (prevScrollPos > currentScrollPos) {
+        titleMenu.classList.remove("hide-title-menu");
+    } else {
+        titleMenu.classList.add("hide-title-menu");
+    }
+
+    prevScrollPos = currentScrollPos;
+};
