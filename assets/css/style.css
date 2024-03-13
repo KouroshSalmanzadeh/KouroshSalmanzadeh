@@ -77,7 +77,7 @@ li {
 body::before,
 body::after {
     content: '';
-    position: absolute;
+    position: fixed;
     width: 0%;
     height: 100vh;
     top: 0;
@@ -102,7 +102,7 @@ body::after {
 }
 
 .loader {
-    position: absolute;
+    position: fixed;
     background-color: #000000ab;
     width: 32vw;
     height: 20vw;
@@ -194,11 +194,11 @@ body.active-loader {
 .reveal-left {
     opacity: 0;
     visibility: hidden;
-    transition: all ease 0.3s;
-    -webkit-transition: all ease 0.3s;
-    -moz-transition: all ease 0.3s;
-    -ms-transition: all ease 0.3s;
-    -o-transition: all ease 0.3s;
+    transition: all ease 0.8s;
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    -ms-transition: all ease 0.8s;
+    -o-transition: all ease 0.8s;
 }
 
 .reveal-top {
@@ -251,10 +251,12 @@ body.active-loader {
 
 /* ---left section--- */
 header {
+    position: relative;
     float: left;
     width: 60%;
     height: 200vh;
-    background: linear-gradient(359deg, #1ffa93, black);
+    background-color: whitesmoke;
+    /* background: linear-gradient(359deg, #1ffa93, black); */
     overflow: hidden;
 }
 
@@ -271,7 +273,8 @@ aside {
 /* ---- background pattern ---- */
 canvas {
     display: block;
-    width: auto !important;
+    width: 105%;
+    height: 50%;
 }
 
 /* ---- particles.js container ---- */
@@ -334,7 +337,7 @@ header .title {
 
 header .title h1,
 header .title h2 {
-    background: linear-gradient(130deg, var(--green-color) 20%, var(--grey-color), var(--green-color) 80%);
+    background: linear-gradient(130deg, #000000 20%, #ffffff, var(--green-color) 80%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     cursor: pointer;
@@ -367,7 +370,7 @@ header .title::after {
 header .title::before {
     width: 60%;
     height: 4vw;
-    background: linear-gradient(90deg, #ffffff2e, transparent);
+    background: linear-gradient(90deg, var(--green-color), transparent);
     left: auto;
     right: 0;
     top: 1.3vw;
@@ -377,7 +380,7 @@ header .title::before {
 header .title::after {
     width: 81%;
     height: 2vw;
-    background: linear-gradient(270deg, #ffffff2e, transparent);
+    background: linear-gradient(270deg, var(--grey-color), transparent);
     left: 0;
     right: auto;
     top: 6.7vw;
@@ -578,6 +581,38 @@ nav ul li.active a::before {
     }
 }
 
+.img-about-me {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+
+/* ---halftone pattern--- */
+.halftone {
+    position: absolute;
+
+    &:nth-child(5) {
+        /* top: -12vw;
+        left: 0vw; */
+        filter: opacity(0.3);
+    }
+
+    &:nth-child(4) {
+        bottom: -16rem;
+        right: -16rem;
+        filter: opacity(0.3);
+    }
+
+    &:nth-child(3) {
+        width: 25vw;
+        top: -12vw;
+        left: 0vw;
+        filter: opacity(0.3);
+    }
+}
+
 /* ---social media session--- */
 .social-media {
     position: absolute;
@@ -629,6 +664,14 @@ nav ul li.active a::before {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .card svg {

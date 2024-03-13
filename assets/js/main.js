@@ -151,24 +151,32 @@ document.addEventListener('DOMContentLoaded', () => {
 /////// reveal and active elements \\\\\\\
 function reveal() {
     const reveals = document.querySelectorAll(".reveal-top, .reveal-right, .reveal-left");
+    let i = 0;
 
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 70;
+    function revealNext() {
+        if (i < reveals.length) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 70;
 
-        if (elementTop < windowHeight - elementVisible) {
-            if (reveals[i].className.includes('reveal-top')) {
-                reveals[i].classList.add("active-top");
-            } else if (reveals[i].className.includes('reveal-righ')) {
-                reveals[i].classList.add('active-right')
-            } else if (reveals[i].className.includes('reveal-left')) {
-                reveals[i].classList.add('active-left');
+            if (elementTop < windowHeight - elementVisible) {
+                console.log(reveals);
+                if (reveals[i].className.includes('reveal-top')) {
+                    reveals[i].classList.add("active-top");
+                } else if (reveals[i].className.includes('reveal-righ')) {
+                    reveals[i].classList.add('active-right')
+                } else if (reveals[i].className.includes('reveal-left')) {
+                    reveals[i].classList.add('active-left');
+                }
+            } else {
+                reveals[i].classList.remove("active");
             }
-        } else {
-            reveals[i].classList.remove("active");
+            i++;
+            setTimeout(revealNext, 100); // انتظار 1 ثانیه قبل از اجرای حلقه بعدی
         }
     }
+
+    revealNext(); // شروع اجرای حلقه
 }
 window.addEventListener("scroll", () => {
     setTimeout(() => {
