@@ -139,17 +139,17 @@ document.addEventListener('DOMContentLoaded', () => {
         closeIconLoader.addEventListener('click', () => {
             body.classList.remove('active-loader');
             setTimeout(() => {
-                reveal();
+                revealStart();
             }, 1000);
         })
     }, 1000);
     setTimeout(() => {
         body.classList.remove('active-loader');
-    }, 20000);
+    }, 10000);
 })
 
 /////// reveal and active elements \\\\\\\
-function reveal() {
+function revealStart() {
     const reveals = document.querySelectorAll(".reveal-top, .reveal-right, .reveal-left");
     let i = 0;
 
@@ -160,7 +160,6 @@ function reveal() {
             var elementVisible = 70;
 
             if (elementTop < windowHeight - elementVisible) {
-                console.log(reveals);
                 if (reveals[i].className.includes('reveal-top')) {
                     reveals[i].classList.add("active-top");
                 } else if (reveals[i].className.includes('reveal-righ')) {
@@ -174,19 +173,53 @@ function reveal() {
             i++;
             setTimeout(revealNext, 100); // انتظار 1 ثانیه قبل از اجرای حلقه بعدی
         }
-    }
 
+    }
     revealNext(); // شروع اجرای حلقه
 }
+
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal-top, .reveal-right, .reveal-left");
+
+    for (let i = 6; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 35;
+
+        if (elementTop < windowHeight - elementVisible) {
+            if (reveals[i].className.includes('reveal-top')) {
+                reveals[i].classList.add("active-top");
+            } else if (reveals[i].className.includes('reveal-righ')) {
+                reveals[i].classList.add('active-right')
+            } else if (reveals[i].className.includes('reveal-left')) {
+                reveals[i].classList.add('active-left');
+            }
+        } else {
+            if (reveals[i].className.includes('reveal-top')) {
+                reveals[i].classList.remove("active-top");
+            } else if (reveals[i].className.includes('reveal-righ')) {
+                reveals[i].classList.remove('active-right')
+            } else if (reveals[i].className.includes('reveal-left')) {
+                reveals[i].classList.remove('active-left');
+            }
+        }
+    }
+}
+
+
 window.addEventListener("scroll", () => {
-    setTimeout(() => {
+    if (document.body.className == 'loader-active') {
+        setTimeout(() => {
+            revealStart();
+        }, 10000);
+    } else {
         reveal();
-    }, 10000);
+    }
 });
 window.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-        reveal();
-    }, 10000);
+        revealStart();
+    }, 11000);
 });
 
 /////// navbar and title on top of the page ///////
@@ -231,3 +264,37 @@ window.onscroll = function () {
 
     prevScrollPos = currentScrollPos;
 };
+
+const emptySocialMedia = document.querySelectorAll('.card[title="it is empty"]');
+emptySocialMedia.forEach(item => {
+    item.addEventListener('click', () => {
+        if (!document.querySelector('.alert')) {
+            const alert = document.createElement('div');
+            alert.setAttribute('class', 'alert');
+            alert.innerText = "من هنوز در این پلتفرم حساب ندارم :)";
+            document.body.insertBefore(alert, document.body.firstChild);
+
+            setTimeout(() => {
+                alert.classList.add('active');
+            }, 300);
+
+            const removeAlert = setTimeout(() => {
+                alert.classList.remove('active');
+                setTimeout(() => {
+                    alert.remove();
+                }, 1000);
+                clearTimeout(removeAlert);
+            }, 5000);
+        }
+    })
+})
+
+
+const firstBoxSkills = document.querySelectorAll('.box-skills');
+const boxSkills = Array.from(firstBoxSkills).filter(item => !item.classList.contains('disabled'));
+// حذف عناصری که کلاس disabled را دارند
+boxSkills.forEach(box => {
+    box.addEventListener('click', () => {
+        box.classList.toggle('active-sub-box');
+    })
+});

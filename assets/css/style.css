@@ -51,6 +51,7 @@ body {
     font-family: 'yekan', 'yekan-number', sans-serif;
     position: relative;
     display: flex;
+    justify-content: center;
 }
 
 .container {
@@ -254,7 +255,7 @@ header {
     position: relative;
     float: left;
     width: 60%;
-    height: 200vh;
+    height: auto;
     background-color: whitesmoke;
     /* background: linear-gradient(359deg, #1ffa93, black); */
     overflow: hidden;
@@ -265,7 +266,7 @@ aside {
     float: right;
     position: relative;
     width: 40%;
-    height: 200vh;
+    height: auto;
     overflow: hidden;
     box-shadow: 35px 0px 40px 30px black;
 }
@@ -590,28 +591,29 @@ nav ul li.active a::before {
 
 
 /* ---halftone pattern--- */
-.halftone {
+.halftone1,
+.halftone2,
+.halftone3 {
     position: absolute;
-
-    &:nth-child(5) {
-        /* top: -12vw;
-        left: 0vw; */
-        filter: opacity(0.3);
-    }
-
-    &:nth-child(4) {
-        bottom: -16rem;
-        right: -16rem;
-        filter: opacity(0.3);
-    }
-
-    &:nth-child(3) {
-        width: 25vw;
-        top: -12vw;
-        left: 0vw;
-        filter: opacity(0.3);
-    }
+    filter: opacity(0.3);
 }
+
+.halftone1 {
+    width: 25vw;
+    top: -12vw;
+    left: 0vw;
+}
+
+.halftone2 {
+    bottom: -4rem;
+    right: -16rem;
+    position: relative;
+}
+
+.halftone3 {
+    display: none;
+}
+
 
 /* ---social media session--- */
 .social-media {
@@ -897,4 +899,266 @@ nav ul li.active a::before {
     font-weight: bold;
     letter-spacing: 0.33em;
     z-index: 3;
+}
+
+/* --- alert for empty social --- */
+.alert {
+    position: fixed;
+    width: 17vw;
+    height: 3vw;
+    top: -5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background: aquamarine;
+    color: #000000;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -webkit-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -moz-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -ms-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -o-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0.3rem;
+        background: white;
+        border-radius: 100vw;
+        bottom: 0;
+        animation: timeline 5s linear forwards;
+        -webkit-animation: timeline 5s linear forwards;
+    }
+}
+
+.alert.active {
+    top: 1rem;
+    transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -webkit-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -moz-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -ms-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+    -o-transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+
+    &::before {
+        width: 14rem;
+    }
+}
+
+@keyframes timeline {
+    to {
+        width: 0;
+    }
+}
+
+
+/* --- skills session --- */
+.skills {
+    position: relative;
+    margin: 5rem 0;
+}
+
+.title-session {
+    /*padding-left: 1.5rem;
+    */
+    font-size: 1.5rem;
+    cursor: pointer;
+    -webkit-transition: all .6s ease;
+    -moz-transition: all .6s ease;
+    -ms-transition: all .6s ease;
+    -o-transition: all .6s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 20vw;
+        height: 2.8vw;
+        right: 0;
+        border-radius: 50px 0 0 50px;
+        background: linear-gradient(90deg, var(--green-color), transparent);
+        transition: all .6s ease;
+
+    }
+
+    span {
+        background: linear-gradient(130deg, #000000 20%, #ffffff, var(--green-color) 80%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all .6s ease;
+        background-size: 300%;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        -o-transition: all .6s ease;
+    }
+
+
+    &:hover {
+        &::before {
+            width: 0;
+        }
+
+        span {
+            background-size: 320%;
+            background-position: right center;
+            transition: all .7s ease;
+        }
+    }
+}
+
+.skills .main-box-skills {
+    width: 100%;
+    height: auto;
+    margin-top: 3vw;
+    border-radius: 2rem;
+    border: 2px solid #d8d8d8a3;
+    background: #d8d8d836;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all ease 0.5s;
+}
+
+.skills .main-box-skills .box-skills {
+    width: 100%;
+    height: 2.5vw;
+    position: relative;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ffffff, #d8d8d8);
+    box-shadow: 0px 5px 20px -10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: hidden;
+    transition: all ease 0.5s;
+}
+
+.skills .main-box-skills .box-skills:nth-child(2).active-sub-box {
+    height: 9vw;
+    transition: all ease 1s;
+}
+
+.skills .main-box-skills .box-skills:nth-child(3).active-sub-box {
+    height: 5vw;
+    transition: all ease 1s;
+}
+
+.skills .main-box-skills .box-skills .skill {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+    span.arrow {
+        position: absolute;
+        right: 0.3rem;
+        top: 0.9rem;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0.7rem;
+            height: 0.2rem;
+            background: rgb(46, 46, 46);
+            border-radius: 100vw;
+        }
+
+        &::before {
+            transform: rotate(135deg);
+            right: -6px;
+        }
+
+        &::after {
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.skills .main-box-skills .box-skills.disabled {
+    cursor: auto;
+
+    span.arrow {
+
+        &::before,
+        &::after {
+            background: rgb(129, 129, 129);
+        }
+    }
+}
+
+.progress-bar {
+    position: relative;
+    width: 87%;
+    height: 0.7vw;
+    background: white;
+    border: 1px solid #c6c6c6;
+    border-radius: 100vw;
+    margin-right: 1.5rem;
+    transition: all ease 0.3s;
+    transition-delay: 1s;
+
+    &::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        width: 0;
+        height: 100%;
+        border-radius: 100vw;
+        background: linear-gradient(45deg, var(--grey-color), var(--green-color));
+    }
+}
+
+.skills .main-box-skills .box-skills .sub-skills {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .skill {
+        padding: 0.5rem;
+
+        .progress-bar {
+            width: 75%;
+        }
+
+        span.bold {
+            font-size: .8rem;
+        }
+    }
+}
+
+
+.skills .main-box-skills.active-top .box-skills:nth-child(1) .progress-bar::before {
+    width: 90%;
+    transition: all ease 0.3s;
+    transition-delay: 0.3s;
+}
+
+.skills .main-box-skills.active-top .box-skills:nth-child(2) .progress-bar::before {
+    width: 90%;
+    transition: all ease 0.3s;
+    transition-delay: 0.5s;
+}
+
+.skills .main-box-skills .box-skills .sub-skills .progress-bar::before {
+    width: 0 !important;
+}
+
+.skills .main-box-skills.active-top .box-skills:nth-child(3) .progress-bar::before {
+    width: 90%;
+    transition: all ease 0.3s;
+    transition-delay: 0.7s;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box .sub-skills .skill .progress-bar::before {
+
+    width: 50% !important;
 }
