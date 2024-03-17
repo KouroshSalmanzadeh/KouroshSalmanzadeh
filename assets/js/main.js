@@ -181,7 +181,7 @@ function revealStart() {
 function reveal() {
     const reveals = document.querySelectorAll(".reveal-top, .reveal-right, .reveal-left");
 
-    for (let i = 6; i < reveals.length; i++) {
+    for (let i = 0; i < reveals.length; i++) {
         var windowHeight = window.innerHeight;
         var elementTop = reveals[i].getBoundingClientRect().top;
         var elementVisible = 35;
@@ -227,24 +227,64 @@ function selectMenu(ev) {
     const titleNav = document.querySelector('.title-menu');
     const titleNavH1 = document.querySelector('.title-menu h1');
     const activeli = document.querySelector('nav ul li.active');
-    const navli = ev.currentTarget.parentElement;
+    debugger
+    if (ev.type == 'click') {
+        const navli = ev.currentTarget.parentElement;
 
+        if (ev.target.innerText !== titleNavH1.innerText) {
+            activeli.classList.remove('active');
+            setTimeout(() => {
+                navli.classList.add('active');
 
+            }, 400);
+            titleNav.classList.add('hide');
+        }
 
-    if (ev.target.innerText !== titleNavH1.innerText) {
-        activeli.classList.remove('active');
         setTimeout(() => {
-            navli.classList.add('active');
+            titleNavH1.innerText = ev.target.innerText;
+            titleNav.classList.remove('hide');
+        }, 700);
+        observerActive = false;
+        setTimeout(() => {
+            // برای فعال کردن observer دوباره
+            observerActive = true;
+        }, 1000);
+    } else {
+        if (ev.type == 'click') {
 
-        }, 400);
-        titleNav.classList.add('hide');
+        }
+        const target = ev.target.id;
+        let thisLi;
+
+        if (document.querySelector('.nav-list .active')) {
+            activeli.classList.remove('active');
+        }
+        menu.classList.add('hover');
+        switch (target) {
+            case 'about-me':
+                thisLi = document.querySelector('.about-me-li');
+                thisLi.classList.add('active');
+                titleNavH1.innerText = thisLi.innerText;
+                titleMenu.classList.remove('hide-title-menu');
+                break;
+            case 'skills':
+                thisLi = document.querySelector('.skills-li');
+                thisLi.classList.add('active');
+                titleNavH1.innerText = thisLi.innerText;
+                titleMenu.classList.remove('hide-title-menu');
+                break;
+            case 'portfolio':
+
+                thisLi = document.querySelector('.portfolio-li');
+                thisLi.classList.add('active');
+                titleNavH1.innerText = thisLi.innerText;
+                titleMenu.classList.remove('hide-title-menu');
+                break;
+            default:
+                break;
+
+        }
     }
-
-    setTimeout(() => {
-        titleNavH1.innerText = ev.target.innerText;
-        titleNav.classList.remove('hide');
-    }, 700);
-    // clearTimeout(hide);
 }
 
 // Hide and show title of navbar when Scroll
@@ -298,3 +338,35 @@ boxSkills.forEach(box => {
         box.classList.toggle('active-sub-box');
     })
 });
+
+
+/////// change li menu when scroll \\\\\\\
+// انتخاب المان منو
+const menu = document.querySelector('.nav-list');
+let observerActive = true;
+
+// تعریف تنظیمات برای IntersectionObserver
+const observerOptions = {
+    root: null, // null به معنای مشاهده فریم مرورگر است
+    rootMargin: '0px', // حاشیه اضافی اضافه شده به حاشیه مشاهده‌کننده
+    threshold: 0.5 // نسبت المان مشاهده شده به کل المان
+};
+
+// تعریف مشاهده‌کننده
+const observer = new IntersectionObserver((entries, observer) => {
+    if (!observerActive) return;
+    entries.forEach(entry => {
+        // اگر المان وارد شده مشاهده شده باشد
+        if (entry.isIntersecting) {
+            selectMenu(entry);
+        }
+    })
+}, observerOptions);
+
+// اعمال مشاهده‌کننده بر روی المنو
+const about_me = document.querySelector('#about-me');
+const skills = document.querySelector('#skills');
+const portfolio = document.querySelector('#portfolio');
+observer.observe(about_me);
+observer.observe(skills);
+observer.observe(portfolio);

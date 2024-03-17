@@ -54,11 +54,11 @@
             <!-- menu and title menu -->
             <nav>
                 <ul class="nav-list">
-                    <li class="active"><a href="index.html" aria-current="page" onclick="selectMenu(event)">خانه</a>
+                    <li class="active"><a href="#" aria-current="page" onclick="selectMenu(event)">خانه</a>
                     </li>
-                    <li><a href="#about-me" onclick="selectMenu(event)">درباره من</a></li>
-                    <li><a href="#skills" onclick="selectMenu(event)">مهارت ها</a></li>
-                    <li><a href="#" onclick="selectMenu(event)">پورتفولیو</a></li>
+                    <li class="about-me-li"><a href="#about-me" onclick="selectMenu(event)">درباره من</a></li>
+                    <li class="skills-li"><a href="#skills" onclick="selectMenu(event)">مهارت ها</a></li>
+                    <li class="portfolio-li"><a href="#portfolio" onclick="selectMenu(event)">پورتفولیو</a></li>
                     <li><a href="#" onclick="selectMenu(event)">ارتباط با من</a></li>
                 </ul>
             </nav>
@@ -228,6 +228,32 @@
                     <div class="main_back"></div>
                 </div>
             </div>
+
+            <div class="skills-description reveal-left">
+                <span class="green-color">توضیحات</span>
+                <p>
+                    من در رشته کامپیوتر تحصیل کردم و در همان زمان با زبان های
+                    <code class="green-color">python</code>
+                    و
+                    <code class="green-color">C#</code>
+                    آشنا شدم و دوره آنها را گذراندم.
+                    سپس به صورت جدی از ابتدای سال 1402 به یادگیری حرفه ای طراحی وب مشغول شدم و در حال حاضر به مهارت های
+                    برنامه نویسی که در سمت چپ می بینید تسلط خوبی دارم و همچنان در حال یادگیری و آپدیت این چنین موارد
+                    هستم.
+
+                </p>
+            </div>
+
+            <div class="portfolio-description reveal-left">
+                <span class="green-color">توضیحات</span>
+                <p>
+                    این پروژه ها به ترتیب از اولین پروژه حرفه ای من شروع شده
+                    و در نهایت در پروژه پنجم که آخرین آنهاست، به اتمام می رسد.
+                    <br>
+                    در این پروژه ها از تکنولوژی ها و زبان های مختلف استفاده شده که کدها و جزئیات آنها را در گیت هاب میتوانید مشاهده کنید.
+                </p>
+                <a href="https://github.com/KouroshSalmanzadeh?tab=repositories" target="_blank" rel="noopener noreferrer">ریپازیتوری های گیت هاب من</a>
+            </div>
         </div>
     </aside>
 
@@ -246,7 +272,12 @@
                 <div class="container">
                     <span>مهارت های من</span>
                 </div>
+            </div>
 
+            <div class="second-title reveal-left">
+                <div class="container">
+                    <span>برنامه نویسی</span>
+                </div>
             </div>
             <div class="container">
                 <div class="main-box-skills reveal-top">
@@ -267,20 +298,28 @@
                         </div>
                         <div class="sub-skills">
                             <div class="skill">
-                                <span class="bold green-color">BootStrap css</span>
+                                <span class="bold">BootStrap <span class="green-color">css</span></span>
                                 <div class="progress-bar"></div>
                             </div>
                             <div class="skill">
-                                <span class="bold green-color">Materialize css</span>
+                                <span class="bold">Materialize <span class="green-color">css</span></span>
                                 <div class="progress-bar"></div>
                             </div>
                             <div class="skill">
-                                <span class="bold green-color">TailWind css</span>
+                                <span class="bold">TailWind <span class="green-color">css</span></span>
+                                <div class="progress-bar"></div>
+                            </div>
+                            <div class="skill">
+                                <span class="bold">FlexBox <span class="green-color">css</span></span>
+                                <div class="progress-bar"></div>
+                            </div>
+                            <div class="skill">
+                                <span class="bold">Grid <span class="green-color">css</span></span>
                                 <div class="progress-bar"></div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="box-skills">
                         <div class="skill">
                             <span class="bold">JS</span>
@@ -289,7 +328,21 @@
                         </div>
                         <div class="sub-skills">
                             <div class="skill">
-                                <span class="bold green-color">React.js</span>
+                                <span class="bold">React <span class="green-color">.js</span></span>
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-skills">
+                        <div class="skill">
+                            <span class="bold">Git</span>
+                            <div class="progress-bar"></div>
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="sub-skills">
+                            <div class="skill">
+                                <span class="bold"><span class="green-color">Git</span>hub</span>
                                 <div class="progress-bar"></div>
                             </div>
                         </div>
@@ -297,7 +350,53 @@
                 </div>
             </div>
         </div>
+        <div class="portfolio" id="portfolio">
+            <div class="title-session bold reveal-right">
+                <div class="container">
+                    <span>پورتفولیو</span>
+                </div>
+            </div>
+            <div class="second-title reveal-left">
+                <div class="container">
+                    <span>نمونه کار های من</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="main-box-portfolio reveal-top">
+                    <div class="box-portfolio">
+                        <span class="bold">پروژه اول</span>
+                        <img src="assets/img/Project 1.png" alt="Project of Kourosh Salmanzadeh">
+                        <a href="https://kouroshsalmanzadeh.github.io/first-project_hacking-site/" target="_blank"
+                            rel="noopener noreferrer">مشاهده پروژه</a>
+                    </div>
+                    <div class="box-portfolio">
+                        <span class="bold">پروژه دوم</span>
+                        <img src="assets/img/Project 2.png" alt="Project of Kourosh Salmanzadeh">
+                        <a href="https://kouroshsalmanzadeh.github.io/second-project_find-jobs/" target="_blank"
+                            rel="noopener noreferrer">مشاهده پروژه</a>
+                    </div>
+                    <div class="box-portfolio">
+                        <span class="bold">پروژه سوم</span>
+                        <img src="assets/img/Project 3.png" alt="Project of Kourosh Salmanzadeh">
+                        <a href="https://kouroshsalmanzadeh.github.io/ClockAlarm/" target="_blank"
+                            rel="noopener noreferrer">مشاهده پروژه</a>
+                    </div>
+                    <div class="box-portfolio">
+                        <span class="bold">پروژه چهارم</span>
+                        <img src="assets/img/Project 4.png" alt="Project of Kourosh Salmanzadeh">
+                        <a href="https://kouroshsalmanzadeh.github.io/ToDoList-better-/" target="_blank"
+                            rel="noopener noreferrer">مشاهده پروژه</a>
+                    </div>
+                    <div class="box-portfolio">
+                        <span class="bold">پروژه پنجم</span>
+                        <img src="assets/img/Project 5.png" alt="Project of Kourosh Salmanzadeh">
+                        <a href="https://kouroshsalmanzadeh.github.io/Tickets-Store/" target="_blank"
+                            rel="noopener noreferrer">مشاهده پروژه</a>
+                    </div>
+                </div>
+            </div>
 
+        </div>
 
         <!-- halftone patterns -->
         <img class="halftone1" src="assets/img/halftone 1.png">

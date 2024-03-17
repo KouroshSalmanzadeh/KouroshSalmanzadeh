@@ -268,7 +268,8 @@ aside {
     width: 40%;
     height: auto;
     overflow: hidden;
-    box-shadow: 35px 0px 40px 30px black;
+    z-index: 5;
+    box-shadow: 20px 0px 40px 15px black;
 }
 
 /* ---- background pattern ---- */
@@ -437,6 +438,10 @@ nav ul:hover {
     right: -1rem;
 }
 
+.nav-list.hover {
+    right: -1rem;
+}
+
 nav ul li {
     width: 70%;
     margin: 1rem 0;
@@ -446,6 +451,10 @@ nav ul li.active {
     view-transition-name: activeNav;
     /* background-color: var(--grey-color); */
     position: relative;
+
+    a {
+        color: var(--green-color);
+    }
 }
 
 ::view-transition-group(activeNav) {
@@ -539,6 +548,7 @@ nav ul li.active a::before {
 .title-menu.hide {
     top: -9rem;
 }
+
 
 /* ---about me--- */
 .main-about-me {
@@ -963,12 +973,8 @@ nav ul li.active a::before {
 .title-session {
     /*padding-left: 1.5rem;
     */
-    font-size: 1.5rem;
+    font-size: 1.3vw;
     cursor: pointer;
-    -webkit-transition: all .6s ease;
-    -moz-transition: all .6s ease;
-    -ms-transition: all .6s ease;
-    -o-transition: all .6s ease;
 
     &::before {
         content: '';
@@ -1008,10 +1014,53 @@ nav ul li.active a::before {
     }
 }
 
+.second-title {
+    position: relative;
+    margin-top: 2vw;
+    text-align: end;
+    font-size: 1vw;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 18vw;
+        height: 1.5vw;
+        left: 0;
+        top: 0.45vw;
+        background: linear-gradient(270deg, var(--grey-color), transparent);
+        border-radius: 0px 50px 50px 0px;
+        transition: all 0.6s ease;
+    }
+
+    span {
+        background: linear-gradient(130deg, #000000 20%, #ffffff, var(--green-color) 80%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        cursor: pointer;
+        transition: all .6s ease;
+        background-size: 300%;
+        background-position: right center;
+    }
+
+
+    &:hover {
+        &::before {
+            width: 0;
+        }
+
+        span {
+            background-size: 320%;
+            background-position: left center;
+            transition: all .7s ease;
+        }
+    }
+}
+
 .skills .main-box-skills {
     width: 100%;
     height: auto;
-    margin-top: 3vw;
+    margin-top: 1vw;
     border-radius: 2rem;
     border: 2px solid #d8d8d8a3;
     background: #d8d8d836;
@@ -1040,11 +1089,12 @@ nav ul li.active a::before {
 }
 
 .skills .main-box-skills .box-skills:nth-child(2).active-sub-box {
-    height: 9vw;
+    height: 13vw;
     transition: all ease 1s;
 }
 
-.skills .main-box-skills .box-skills:nth-child(3).active-sub-box {
+.skills .main-box-skills .box-skills:nth-child(3).active-sub-box,
+.skills .main-box-skills .box-skills:nth-child(4).active-sub-box {
     height: 5vw;
     transition: all ease 1s;
 }
@@ -1104,7 +1154,6 @@ nav ul li.active a::before {
     border-radius: 100vw;
     margin-right: 1.5rem;
     transition: all ease 0.3s;
-    transition-delay: 1s;
 
     &::before {
         position: absolute;
@@ -1127,6 +1176,10 @@ nav ul li.active a::before {
 
         .progress-bar {
             width: 75%;
+
+            &::before {
+                background: linear-gradient(45deg, var(--green-color), var(--grey-color));
+            }
         }
 
         span.bold {
@@ -1136,20 +1189,21 @@ nav ul li.active a::before {
 }
 
 
+/* progress bar of main skills */
+.skills .main-box-skills .box-skills .sub-skills .progress-bar::before {
+    width: 0 !important;
+}
+
 .skills .main-box-skills.active-top .box-skills:nth-child(1) .progress-bar::before {
-    width: 90%;
+    width: 95%;
     transition: all ease 0.3s;
     transition-delay: 0.3s;
 }
 
 .skills .main-box-skills.active-top .box-skills:nth-child(2) .progress-bar::before {
-    width: 90%;
+    width: 85%;
     transition: all ease 0.3s;
     transition-delay: 0.5s;
-}
-
-.skills .main-box-skills .box-skills .sub-skills .progress-bar::before {
-    width: 0 !important;
 }
 
 .skills .main-box-skills.active-top .box-skills:nth-child(3) .progress-bar::before {
@@ -1158,7 +1212,240 @@ nav ul li.active a::before {
     transition-delay: 0.7s;
 }
 
-.skills .main-box-skills .box-skills.active-sub-box .sub-skills .skill .progress-bar::before {
+.skills .main-box-skills.active-top .box-skills:nth-child(4) .progress-bar::before {
+    width: 90%;
+    transition: all ease 0.3s;
+    transition-delay: 0.9s;
+}
 
-    width: 50% !important;
+/* progress bar of frameworks and libraries (sub skill's progres bar) */
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(1) .progress-bar::before {
+    width: 60% !important;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(2) .progress-bar::before {
+    width: 80% !important;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(3) .progress-bar::before {
+    width: 40% !important;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(4) .progress-bar::before {
+    width: 100% !important;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(5) .progress-bar::before {
+    width: 95% !important;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(3) .sub-skills .skill:nth-child(1) .progress-bar::before {
+    width: 45% !important;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(4) .sub-skills .skill:nth-child(1) .progress-bar::before {
+    width: 85% !important;
+}
+
+/* skills description */
+aside .skills-description {
+    width: 30vw;
+    height: 15vw;
+    top: 54vw;
+    left: 0;
+    text-align: justify;
+    color: white;
+    background: linear-gradient(270deg, #ffffff2e, transparent);
+    position: absolute;
+    z-index: 1;
+    padding: 0 4vw;
+    border-radius: 0 100vw 100vw 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    span {
+        font-size: 1.5vw;
+        margin-bottom: 1vw;
+    }
+}
+
+
+/* --- Portfolio session --- */
+.portfolio {
+    margin: 10vw 0 5vw 0;
+
+    .title-session {
+
+        &::before {
+            width: 18vw;
+        }
+
+        &:hover {
+            &::before {
+                width: 0;
+            }
+        }
+    }
+
+    .second-title {
+        &::before {
+            width: 19vw;
+        }
+
+        &:hover {
+            &::before {
+                width: 0;
+            }
+        }
+    }
+}
+
+.main-box-portfolio {
+    width: 100%;
+    height: 25vw;
+    margin-top: 1vw;
+    border-radius: 2rem;
+    border: 2px solid #d8d8d8a3;
+    background: #d8d8d836;
+    padding: 1rem;
+    overflow-y: scroll;
+    transition: all ease 0.5s;
+}
+
+.main-box-portfolio .box-portfolio {
+    height: 100%;
+    margin-bottom: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: all 0.3s ease;
+
+    span {
+        font-size: 1.5vw;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background: linear-gradient(180deg, var(--green-color), transparent);
+            width: 8vw;
+            height: 5vw;
+            left: -1.3vw;
+            bottom: -2vw;
+            border-radius: 2rem 2rem 0 0;
+            transition: all 0.3s ease;
+        }
+    }
+
+    img {
+        width: 100%;
+        border-radius: 1vw;
+        filter: grayscale(100);
+        transition: all 0.4s ease;
+        cursor: pointer;
+        box-shadow: 0px 5px 20px -10px black;
+
+    }
+
+    a {
+        width: 100%;
+        text-align: center;
+        border-radius: 0.7vw;
+        color: black;
+        padding: 0.2rem 0;
+        background: linear-gradient(134deg, #1ef791 35%, white, #1ef791 65%);
+        background-position: left center;
+        background-size: 300%;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-position: right center;
+            background-size: 320%;
+            color: white;
+        }
+    }
+}
+
+.main-box-portfolio .box-portfolio:hover {
+
+    span {
+
+        &::before {
+            height: 0;
+        }
+    }
+
+    img {
+        filter: grayscale(0);
+    }
+}
+
+.main-box-portfolio::-webkit-scrollbar {
+    width: 10px;
+    /* عرض اسکرول بار */
+}
+
+.main-box-portfolio::-webkit-scrollbar-thumb {
+    background-color: var(--green-color);
+    border-radius: 10px;
+}
+
+.main-box-portfolio::-webkit-scrollbar-thumb:hover {
+    background-color: #1bbd72;
+}
+
+.main-box-portfolio::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    /* رنگ پس زمینه اسکرول بار */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* portfolio description */
+aside .portfolio-description {
+    width: 30vw;
+    height: 17vw;
+    top: 96vw;
+    left: 0;
+    text-align: justify;
+    color: white;
+    background: linear-gradient(270deg, #ffffff2e, transparent);
+    position: absolute;
+    z-index: 1;
+    padding: 0 4vw;
+    border-radius: 0 100vw 100vw 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    span {
+        font-size: 1.5vw;
+        margin-bottom: 1vw;
+    }
+
+    p {
+        padding: 1vw 0;
+    }
+
+    a {
+        width: 100%;
+        text-align: center;
+        border-radius: 0.7vw;
+        color: black;
+        padding: 0.2rem 0;
+        background: linear-gradient(134deg, #1ef791 35%, white, #1ef791 65%);
+        background-position: left center;
+        background-size: 300%;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-position: right center;
+            background-size: 320%;
+            color: white;
+        }
+    }
 }
