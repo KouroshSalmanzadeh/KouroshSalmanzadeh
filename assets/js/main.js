@@ -227,7 +227,6 @@ function selectMenu(ev) {
     const titleNav = document.querySelector('.title-menu');
     const titleNavH1 = document.querySelector('.title-menu h1');
     const activeli = document.querySelector('nav ul li.active');
-    debugger
     if (ev.type == 'click') {
         const navli = ev.currentTarget.parentElement;
 
@@ -274,12 +273,18 @@ function selectMenu(ev) {
                 titleMenu.classList.remove('hide-title-menu');
                 break;
             case 'portfolio':
-
                 thisLi = document.querySelector('.portfolio-li');
                 thisLi.classList.add('active');
                 titleNavH1.innerText = thisLi.innerText;
                 titleMenu.classList.remove('hide-title-menu');
                 break;
+            case 'contact-me':
+                thisLi = document.querySelector('.contact-me-li');
+                thisLi.classList.add('active');
+                titleNavH1.innerText = thisLi.innerText;
+                titleMenu.classList.remove('hide-title-menu');
+                break;
+
             default:
                 break;
 
@@ -367,6 +372,8 @@ const observer = new IntersectionObserver((entries, observer) => {
 const about_me = document.querySelector('#about-me');
 const skills = document.querySelector('#skills');
 const portfolio = document.querySelector('#portfolio');
+const contactMe = document.querySelector('#contact-me');
 observer.observe(about_me);
 observer.observe(skills);
 observer.observe(portfolio);
+observer.observe(contactMe);

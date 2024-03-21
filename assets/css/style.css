@@ -50,6 +50,12 @@ html {
 body {
     font-family: 'yekan', 'yekan-number', sans-serif;
     position: relative;
+    /* display: flex;
+    justify-content: center; */
+}
+
+main {
+    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -425,8 +431,8 @@ nav ul {
     right: -9.5rem;
     background-color: #00000063;
     border-radius: 20px 0 0 20px;
-    width: 11rem;
-    height: 28rem;
+    width: 9vw;
+    height: 21vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1447,5 +1453,120 @@ aside .portfolio-description {
             background-size: 320%;
             color: white;
         }
+    }
+}
+
+
+/* ---contact-me session */
+.contact-me .title-session {
+    &::before {
+        width: 19vw;
+    }
+
+    &:hover {
+        &::before {
+            width: 0;
+        }
+    }
+}
+
+.contact-me .second-title {
+    &::before {
+        width: 15vw;
+    }
+
+    &:hover {
+        &::before {
+            width: 0;
+        }
+    }
+}
+
+.contact-me {
+    margin-bottom: 5vw;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2vw 0;
+        width: 100%;
+        text-align: center;
+        border-radius: 0.7vw;
+        color: black;
+        padding: 0.2rem 0;
+        background: linear-gradient(134deg, #1ef791 35%, white, #1ef791 65%);
+        background-position: left center;
+        background-size: 300%;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-position: right center;
+            background-size: 320%;
+            color: white;
+        }
+    }
+}
+
+aside .contact-me-phone {
+    width: 30vw;
+    height: 8vw;
+    top: 126vw;
+    left: 0;
+    text-align: justify;
+    color: white;
+    background: linear-gradient(270deg, #ffffff2e, transparent);
+    position: absolute;
+    z-index: 1;
+    padding: 0 4vw;
+    border-radius: 0 100vw 100vw 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    span {
+        font-size: 1.5vw;
+        margin-bottom: 1vw;
+    }
+
+    a {
+        width: 100%;
+        text-align: center;
+        border-radius: 0.7vw;
+        color: black;
+        padding: 0.2rem 0;
+        background: linear-gradient(134deg, #1ef791 35%, white, #1ef791 65%);
+        background-position: left center;
+        background-size: 300%;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-position: right center;
+            background-size: 320%;
+            color: white;
+        }
+    }
+}
+
+/* --- footer --- */
+footer {
+    position: relative;
+    width: 100%;
+    height: 10vw;
+    z-index: 999;
+    background: var(--green-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span:first-child {
+        font-size: 2vw;
+        font-weight: 800;
+    }
+
+    b {
+        font-size: 1.5vw;
     }
 }
