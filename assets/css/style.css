@@ -112,7 +112,7 @@ body::after {
     position: fixed;
     background-color: #000000ab;
     width: 32vw;
-    height: 20vw;
+    height: 16vw;
     top: -70%;
     right: 35%;
     z-index: 1001;
@@ -173,8 +173,10 @@ body::after {
         }
 
         b {
+
             border-radius: 1rem;
-            padding: 0 0.5rem;
+            padding: 0 1rem;
+            margin-left: 0.3rem;
             color: black;
         }
     }
@@ -1483,7 +1485,7 @@ aside .portfolio-description {
 }
 
 .contact-me {
-    margin-bottom: 5vw;
+    margin: 10vw 0;
 
     a {
         display: flex;
@@ -1511,7 +1513,7 @@ aside .portfolio-description {
 aside .contact-me-phone {
     width: 30vw;
     height: 8vw;
-    top: 126vw;
+    top: 131vw;
     left: 0;
     text-align: justify;
     color: white;
