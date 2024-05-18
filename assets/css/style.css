@@ -70,14 +70,20 @@ a {
     text-decoration: none;
     color: var(--white-color);
     font-weight: bold;
+    font-size: 0.85vw;
 }
 
 li {
     list-style: none;
 }
 
+p {
+    font-size: 0.8vw;
+}
+
 .bold {
     font-weight: bold;
+    font-size: 0.85vw;
 }
 
 /* overlay and welcome box */
@@ -113,8 +119,10 @@ body::after {
     background-color: #000000ab;
     width: 32vw;
     height: 16vw;
-    top: -70%;
-    right: 35%;
+    top: -10vw;
+    /* right: 35%; */
+    inset: 0;
+    margin: auto;
     z-index: 1001;
     opacity: 0;
     visibility: hidden;
@@ -193,7 +201,7 @@ body.active-loader {
     div.loader {
         opacity: 1;
         visibility: visible;
-        top: 15vw;
+        top: 5vw;
     }
 }
 
@@ -452,7 +460,7 @@ nav ul:hover {
 
 nav ul li {
     width: 70%;
-    margin: 1rem 0;
+    margin: 0.7vw 0;
 }
 
 nav ul li.active {
@@ -471,7 +479,7 @@ nav ul li.active {
 
 nav ul li.active::before,
 nav ul li.active::after {
-    --border-radius: 2rem;
+    --border-radius: 2vw;
     content: '';
     position: absolute;
     width: var(--border-radius);
@@ -480,13 +488,13 @@ nav ul li.active::after {
 }
 
 nav ul li.active::before {
-    top: -2.13rem;
+    top: -1.6vw;
     box-shadow: -5px 5px 0px 5px var(--grey-color);
     border-radius: 0 0 0 100vw;
 }
 
 nav ul li.active::after {
-    bottom: -2.3rem;
+    bottom: -1.7vw;
     box-shadow: -5px -5px 0px 5px var(--grey-color);
     border-radius: 100vw 0 0 0;
 }
@@ -500,10 +508,10 @@ nav ul li a {
 nav ul li a::before {
     content: '';
     position: absolute;
-    top: -0.13rem;
+    /* top: -0.13rem; */
     left: -0.5rem;
     width: 0;
-    height: 2.5rem;
+    height: 2vw;
     background-color: var(--grey-color);
     z-index: -1;
     border-radius: 0 100vw 100vw 0;
@@ -511,7 +519,7 @@ nav ul li a::before {
 }
 
 nav ul li.active a::before {
-    width: 9.5rem;
+    width: 8vw;
 }
 
 .title-menu {
@@ -563,8 +571,9 @@ nav ul li.active a::before {
     background: linear-gradient(270deg, #ffffff2e, transparent);
     width: 30vw;
     height: 14vw;
-    top: 8rem;
+    top: 12vw;
     left: 0;
+    backdrop-filter: blur(5px);
     position: absolute;
     z-index: 1;
     border-radius: 0 100vw 100vw 0;
@@ -604,7 +613,11 @@ nav ul li.active a::before {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 4rem;
+    padding-top: 4vw;
+
+    img {
+        width: 30vw;
+    }
 }
 
 
@@ -640,7 +653,7 @@ nav ul li.active a::before {
     background: linear-gradient(270deg, #ffffff2e, transparent);
     border-radius: 1vw;
     height: 15vw;
-    top: 30rem;
+    top: 30vw;
     left: 0;
     z-index: 0;
     display: flex;
@@ -1083,8 +1096,8 @@ nav ul li.active a::before {
     width: 100%;
     height: 2.5vw;
     position: relative;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
+    padding: 0.5vw 1vw;
+    margin: 0.5vw;
     border-radius: 1rem;
     cursor: pointer;
     background: linear-gradient(45deg, #ffffff, #d8d8d8);
@@ -1097,7 +1110,7 @@ nav ul li.active a::before {
 }
 
 .skills .main-box-skills .box-skills:nth-child(2).active-sub-box {
-    height: 13vw;
+    height: 17vw;
     transition: all ease 1s;
 }
 
@@ -1118,21 +1131,21 @@ nav ul li.active a::before {
     span.arrow {
         position: absolute;
         right: 0.3rem;
-        top: 0.9rem;
+        top: 0.8vw;
 
         &::before,
         &::after {
             content: '';
             position: absolute;
-            width: 0.7rem;
-            height: 0.2rem;
+            width: 0.5vw;
+            height: 0.2vw;
             background: rgb(46, 46, 46);
             border-radius: 100vw;
         }
 
         &::before {
             transform: rotate(135deg);
-            right: -6px;
+            right: -0.3vw;
         }
 
         &::after {
@@ -1156,7 +1169,7 @@ nav ul li.active a::before {
 .progress-bar {
     position: relative;
     width: 87%;
-    height: 0.7vw;
+    height: 0.6vw;
     background: white;
     border: 1px solid #c6c6c6;
     border-radius: 100vw;
@@ -1184,6 +1197,7 @@ nav ul li.active a::before {
 
         .progress-bar {
             width: 75%;
+            height: 0.5vw;
 
             &::before {
                 background: linear-gradient(45deg, var(--green-color), var(--grey-color));
@@ -1191,7 +1205,7 @@ nav ul li.active a::before {
         }
 
         span.bold {
-            font-size: .8rem;
+            font-size: .8vw;
         }
     }
 }
@@ -1236,7 +1250,7 @@ nav ul li.active a::before {
 }
 
 .skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(3) .progress-bar::before {
-    width: 40% !important;
+    width: 100% !important;
 }
 
 .skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(4) .progress-bar::before {
@@ -1245,6 +1259,10 @@ nav ul li.active a::before {
 
 .skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(5) .progress-bar::before {
     width: 95% !important;
+}
+
+.skills .main-box-skills .box-skills.active-sub-box:nth-child(2) .sub-skills .skill:nth-child(6) .progress-bar::before {
+    width: 85% !important;
 }
 
 .skills .main-box-skills .box-skills.active-sub-box:nth-child(3) .sub-skills .skill:nth-child(1) .progress-bar::before {
@@ -1259,11 +1277,12 @@ nav ul li.active a::before {
 aside .skills-description {
     width: 30vw;
     height: 15vw;
-    top: 54vw;
+    top: 62vw;
     left: 0;
     text-align: justify;
     color: white;
     background: linear-gradient(270deg, #ffffff2e, transparent);
+    backdrop-filter: blur(5px);
     position: absolute;
     z-index: 1;
     padding: 0 4vw;
@@ -1416,8 +1435,9 @@ aside .skills-description {
 aside .portfolio-description {
     width: 30vw;
     height: 17vw;
-    top: 96vw;
+    top: 98vw;
     left: 0;
+    backdrop-filter: blur(5px);
     text-align: justify;
     color: white;
     background: linear-gradient(270deg, #ffffff2e, transparent);
@@ -1513,8 +1533,9 @@ aside .portfolio-description {
 aside .contact-me-phone {
     width: 30vw;
     height: 8vw;
-    top: 131vw;
+    top: 135vw;
     left: 0;
+    backdrop-filter: blur(5px);
     text-align: justify;
     color: white;
     background: linear-gradient(270deg, #ffffff2e, transparent);
