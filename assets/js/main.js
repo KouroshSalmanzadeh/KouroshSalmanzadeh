@@ -377,3 +377,18 @@ observer.observe(about_me);
 observer.observe(skills);
 observer.observe(portfolio);
 observer.observe(contactMe);
+
+
+window.addEventListener("resize", ()=>{location.reload()});
+
+window.addEventListener("DOMContentLoaded", () => {
+    const alertLandscape = document.querySelector('.alert-landscape');
+    if (window.clientInformation.appVersion.includes('Mobile') && window.innerWidth < '600') {
+        alertLandscape.classList.add('active');
+        document.body.classList.remove('mobile');
+      alert('برای استفاده از این سایت، لطفا گوشی خود را به حالت افقی (لنداسکیپ) بچرخانید.');
+    }else {
+        alertLandscape.classList.remove('active');
+        document.body.classList.add('mobile');
+    }
+  });

@@ -126,7 +126,7 @@ body::after {
     z-index: 1001;
     opacity: 0;
     visibility: hidden;
-    border-radius: 2rem;
+    border-radius: 2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -553,9 +553,9 @@ nav ul li.active a::before {
 
 .title-menu h1 {
     color: var(--green-color);
-    width: 12rem;
-    height: 9rem;
-    font-size: 2rem;
+    width: 12vw;
+    height: 9vw;
+    font-size: 2vw;
     background: #00000063;
     padding: 1rem 0.5rem 1rem;
     border-radius: 50%;
@@ -1266,7 +1266,7 @@ nav ul li.active a::before {
 }
 
 .skills .main-box-skills .box-skills.active-sub-box:nth-child(3) .sub-skills .skill:nth-child(1) .progress-bar::before {
-    width: 45% !important;
+    width: 80% !important;
 }
 
 .skills .main-box-skills .box-skills.active-sub-box:nth-child(4) .sub-skills .skill:nth-child(1) .progress-bar::before {
@@ -1591,5 +1591,87 @@ footer {
 
     b {
         font-size: 1.5vw;
+    }
+}
+
+.alert-landscape {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    background: #000000b8;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+
+    img {
+        width: 100%;
+    }
+}
+
+.alert-landscape.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+body.mobile {
+
+    .main-about-me {
+        justify-content: space-evenly;
+        img {
+            margin: 0;
+        }
+
+        .info li :last-child {
+            font-size: 1vw;
+        }
+    }
+
+    nav ul li a {
+        font-size: 1.5vw;
+    }
+
+    /* a {
+        font-size: 3vw;
+    } */
+
+    nav ul {
+        width: 12vw;
+        height: 30vw;
+    }
+
+    /* nav ul li::after,
+    nav ul li::before {
+        display: none;
+    } */
+
+    nav ul li a::before {
+        height: 3.5vw;
+        top: -0.13rem;
+    }
+
+    nav ul li.active a::before {
+        width: 125%;
+    }
+
+    .title-menu {
+        top: -5.5rem;
+
+        h1 {
+            width: 15vw;
+            height: 17vw;
+        }
+    }
+    
+    footer {
+        b {
+            font-size: 3.5vw;
+        }
     }
 }
