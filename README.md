@@ -1,10 +1,5 @@
-- 👋 Hi, I’m @KouroshSalmanzadeh
-- 👀 I’m interested in Security and network
-- 🌱 I’m currently learning JavaScript and network security
-- 💞️ I’m looking to collaborate on ...
+👋 Hi, I’m Kourosh Salmanzadeh and a React developer
+- 👀 I’m interested in developing imazing website and platform
+- 🌱 I’m always learning
 - 📫 The way to communicate with me: kouroshsalmanzadeh@gmail.com
-
-<!---
-KouroshSalmanzadeh/KouroshSalmanzadeh is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+![logo](https://github.com/user-attachments/assets/63a478be-204d-4271-b76f-a362efcf008a)
