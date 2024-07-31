@@ -1333,19 +1333,36 @@ aside .skills-description {
     width: 100%;
     height: 25vw;
     margin-top: 1vw;
-    border-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
     border: 2px solid #d8d8d8a3;
     background: #d8d8d836;
-    padding: 1rem;
-    overflow-y: scroll;
     transition: all ease 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.main-box-portfolio .main-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 1.5rem 7px;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}   
 
 .main-box-portfolio .box-portfolio {
     height: 100%;
     margin-bottom: 3vw;
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
     align-items: center;
     justify-content: space-evenly;
     transition: all 0.3s ease;
@@ -1372,7 +1389,6 @@ aside .skills-description {
         border-radius: 1vw;
         filter: grayscale(100);
         transition: all 0.4s ease;
-        cursor: pointer;
         box-shadow: 0px 5px 20px -10px black;
 
     }
@@ -1410,21 +1426,20 @@ aside .skills-description {
     }
 }
 
-.main-box-portfolio::-webkit-scrollbar {
-    width: 10px;
-    /* عرض اسکرول بار */
+.scroll::-webkit-scrollbar {
+    width: 5px;
 }
 
-.main-box-portfolio::-webkit-scrollbar-thumb {
+.scroll::-webkit-scrollbar-thumb {
     background-color: var(--green-color);
     border-radius: 10px;
 }
 
-.main-box-portfolio::-webkit-scrollbar-thumb:hover {
+.scroll::-webkit-scrollbar-thumb:hover {
     background-color: #1bbd72;
 }
 
-.main-box-portfolio::-webkit-scrollbar-track {
+.scroll::-webkit-scrollbar-track {
     background-color: #f0f0f0;
     border-radius: 10px;
     /* رنگ پس زمینه اسکرول بار */

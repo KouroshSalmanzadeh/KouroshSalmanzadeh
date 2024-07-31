@@ -383,12 +383,18 @@ window.addEventListener("resize", ()=>{location.reload()});
 
 window.addEventListener("DOMContentLoaded", () => {
     const alertLandscape = document.querySelector('.alert-landscape');
+
     if (window.clientInformation.appVersion.includes('Mobile') && window.innerWidth < '600') {
-        alertLandscape.classList.add('active');
-        document.body.classList.remove('mobile');
-      alert('برای استفاده از این سایت، لطفا گوشی خود را به حالت افقی (لنداسکیپ) بچرخانید.');
+        if (!screen.height > screen.width) {
+            alertLandscape.classList.remove('active');
+            document.body.classList.add('mobile');
+        } else {
+            alertLandscape.classList.add('active');
+            document.body.classList.remove('mobile');
+            alert('برای استفاده از این سایت، لطفا گوشی خود را به حالت افقی (لنداسکیپ) بچرخانید.');
+        }
     }else {
+        document.body.classList.remove('mobile');
         alertLandscape.classList.remove('active');
-        document.body.classList.add('mobile');
     }
   });
